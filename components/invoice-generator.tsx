@@ -65,11 +65,11 @@ const defaultInvoiceData: InvoiceData = {
 
 const currencies: CurrencyData[] = [
   { code: "USD", symbol: "$", rate: 1 },
-  { code: "EUR", symbol: "€", rate: 0.92 },
-  { code: "GBP", symbol: "£", rate: 0.79 },
-  { code: "JPY", symbol: "¥", rate: 150.14 },
-  { code: "CAD", symbol: "C$", rate: 1.36 },
-  { code: "LKR", symbol: "Rs.", rate: 315.25 },
+  { code: "EUR", symbol: "€", rate: 1 },
+  { code: "GBP", symbol: "£", rate: 1 },
+  { code: "JPY", symbol: "¥", rate: 1 },
+  { code: "CAD", symbol: "C$", rate: 1 },
+  { code: "LKR", symbol: "Rs.", rate: 1 },
 ]
 
 export default function InvoiceGenerator() {
@@ -186,7 +186,7 @@ export default function InvoiceGenerator() {
             </TabsContent>
           </Tabs>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
               <h2 className="text-xl font-semibold mb-4">Invoice Details</h2>
               <InvoiceForm invoiceData={invoiceData} onUpdateInvoice={handleUpdateInvoice} />

@@ -148,60 +148,62 @@ export function InvoiceForm({ invoiceData, onUpdateInvoice }: InvoiceFormProps) 
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="invoiceNumber" className="text-sm">
-                Invoice Number
-              </Label>
-              <Input
-                id="invoiceNumber"
-                name="invoiceNumber"
-                value={invoiceData.invoiceNumber}
-                onChange={handleInputChange}
-                placeholder="INV-001"
-              />
-            </div>
+        </div>
+      </div>
 
-            <div>
-              <Label htmlFor="colorTheme" className="text-sm">
-                Color Theme
-              </Label>
-              <div className="grid grid-cols-5 gap-2">
-                {colorThemes.map((theme) => (
-                  <button
-                    key={theme.id}
-                    type="button"
-                    className={`w-full h-8 rounded-md ${theme.color} ${
-                      invoiceData.colorTheme === theme.id ? "ring-2 ring-offset-2 ring-black dark:ring-white" : ""
-                    }`}
-                    onClick={() => onUpdateInvoice({ colorTheme: theme.id })}
-                    title={theme.name}
-                  />
-                ))}
-              </div>
-            </div>
+      <div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="invoiceNumber" className="text-sm">
+              Invoice Number
+            </Label>
+            <Input
+              id="invoiceNumber"
+              name="invoiceNumber"
+              value={invoiceData.invoiceNumber}
+              onChange={handleInputChange}
+              placeholder="INV-001"
+            />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="invoiceDate" className="text-sm">
-                Invoice Date
-              </Label>
-              <Input
-                id="invoiceDate"
-                name="invoiceDate"
-                type="date"
-                value={invoiceData.invoiceDate}
-                onChange={handleInputChange}
-              />
+          <div>
+            <Label htmlFor="colorTheme" className="text-sm">
+              Color Theme
+            </Label>
+            <div className="grid grid-cols-5 gap-2">
+              {colorThemes.map((theme) => (
+                <button
+                  key={theme.id}
+                  type="button"
+                  className={`w-full h-8 rounded-md ${theme.color} ${invoiceData.colorTheme === theme.id ? "ring-2 ring-offset-2 ring-black dark:ring-white" : ""
+                    }`}
+                  onClick={() => onUpdateInvoice({ colorTheme: theme.id })}
+                  title={theme.name}
+                />
+              ))}
             </div>
+          </div>
+        </div>
 
-            <div>
-              <Label htmlFor="dueDate" className="text-sm">
-                Due Date
-              </Label>
-              <Input id="dueDate" name="dueDate" type="date" value={invoiceData.dueDate} onChange={handleInputChange} />
-            </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="invoiceDate" className="text-sm">
+              Invoice Date
+            </Label>
+            <Input
+              id="invoiceDate"
+              name="invoiceDate"
+              type="date"
+              value={invoiceData.invoiceDate}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="dueDate" className="text-sm">
+              Due Date
+            </Label>
+            <Input id="dueDate" name="dueDate" type="date" value={invoiceData.dueDate} onChange={handleInputChange} />
           </div>
         </div>
       </div>
@@ -215,11 +217,11 @@ export function InvoiceForm({ invoiceData, onUpdateInvoice }: InvoiceFormProps) 
         </div>
 
         {invoiceData.items.map((item, index) => (
-          <Card key={item.id} className="mb-4">
-            <CardContent className="pt-4">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-4">
-                <div className="md:col-span-5">
-                  <Label htmlFor={`item-${item.id}-description`} className="text-sm">
+          <Card key={item.id} className="mb-2">
+            <CardContent className="">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
+                <div className="md:col-span-4">
+                  <Label htmlFor={`item-${item.id}-description`} className="text-xs">
                     Description
                   </Label>
                   <Input
@@ -230,8 +232,8 @@ export function InvoiceForm({ invoiceData, onUpdateInvoice }: InvoiceFormProps) 
                   />
                 </div>
 
-                <div className="md:col-span-1">
-                  <Label htmlFor={`item-${item.id}-quantity`} className="text-sm">
+                <div className="md:col-span-2">
+                  <Label htmlFor={`item-${item.id}-quantity`} className="text-xs">
                     Qty
                   </Label>
                   <Input
@@ -244,7 +246,7 @@ export function InvoiceForm({ invoiceData, onUpdateInvoice }: InvoiceFormProps) 
                 </div>
 
                 <div className="md:col-span-2">
-                  <Label htmlFor={`item-${item.id}-unitPrice`} className="text-sm">
+                  <Label htmlFor={`item-${item.id}-unitPrice`} className="text-xs">
                     Price
                   </Label>
                   <Input
@@ -257,8 +259,8 @@ export function InvoiceForm({ invoiceData, onUpdateInvoice }: InvoiceFormProps) 
                   />
                 </div>
 
-                <div className="md:col-span-1">
-                  <Label htmlFor={`item-${item.id}-tax`} className="text-sm">
+                <div className="md:col-span-2">
+                  <Label htmlFor={`item-${item.id}-tax`} className="text-xs">
                     Tax %
                   </Label>
                   <Input
@@ -272,7 +274,7 @@ export function InvoiceForm({ invoiceData, onUpdateInvoice }: InvoiceFormProps) 
                 </div>
 
                 <div className="md:col-span-2">
-                  <Label htmlFor={`item-${item.id}-discount`} className="text-sm">
+                  <Label htmlFor={`item-${item.id}-discount`} className="text-xs">
                     Discount %
                   </Label>
                   <Input
